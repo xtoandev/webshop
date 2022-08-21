@@ -18,3 +18,5 @@ The app defines following CRUD APIs.
 | ------ | --- | ---------- | --------------------------- |
 | GET   | /api-user | Get all user |  |
 | GET  | /api-user/{userID} | Get user by ID |  |
+
+
