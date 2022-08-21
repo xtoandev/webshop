@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AdminMapper {
-    public AdminEntity toEntity(AdminDTO dto) {
-        AdminEntity entity = new AdminEntity();
+    /*public AdminEntity toEntity(AdminDTO dto) {
+       AdminEntity entity = new AdminEntity();
 
         entity.setAdminName(dto.getAdminName());
         entity.setEmail(dto.getEmail());
@@ -29,5 +29,5 @@ public class AdminMapper {
         dto.setLevel(entity.getLevel());
         dto.setCreated(entity.getCreated());
         return dto;
-    }
+    }*/
 }
