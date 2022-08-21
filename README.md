@@ -10,4 +10,13 @@ The app defines following CRUD APIs.
 | Method | Url | Decription | Sample Valid Request Body | 
 | ------ | --- | ---------- | --------------------------- |
 | GET   | /api-admin | Get all admin |  |
-| GET  | /api-admin/{adminID} | Get admin by adminID | ) |
+| GET  | /api-admin/{adminID} | Get admin by ID |  |
+
+### User
+
+| Method | Url | Decription | Sample Valid Request Body | 
+| ------ | --- | ---------- | --------------------------- |
+| GET   | /api-user | Get all user |  |
+| GET  | /api-user/{userID} | Get user by ID |  |
+
+
