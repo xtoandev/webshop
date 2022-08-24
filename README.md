@@ -1,6 +1,9 @@
 # webshop
 spring-boot project
 
+# erd-diagram
+![Alt text](https://github.com/xuantoan2001/webshop/blob/main/erd-diagram.png?raw=true?raw=true "Title")
+
 ## Explore Rest APIs
 
 The app defines following CRUD APIs.
