@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SliderDTO extends BaseDTO<SliderDTO> {
-    private String sliderName;
-    private String imageLink;
-    private Integer sortOrder;
-
+public class PermissionDTO extends BaseDTO<PermissionDTO>{
+    private String permissionName;
 }

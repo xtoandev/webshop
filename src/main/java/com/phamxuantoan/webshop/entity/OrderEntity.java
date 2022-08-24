@@ -2,27 +2,37 @@ package com.phamxuantoan.webshop.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "order")
+@Table(name = "transaction")
 public class OrderEntity extends BaseEntity{
-
-    @Column(name = "transaction_id")
-    private Integer transactionID;
-
-    @Column(name = "product_id")
-    private Integer productID;
-
-    @Column(name = "quantity")
-    private Integer quantity;
-
-    @Column(name = "amount")
-    private double amount;
-
     @Column(name = "status")
     private Integer status;
+
+    @Column(name = "user_name")
+    private String userName;
+    @Column(name = "phone_order")
+    private String phoneOrder;
+    @Column(name = "adress_order")
+    private String addressOrder;
+    @Column(name = "message")
+    private String message;
+    @Column(name = "amount")
+    private double amount;
+    @Column(name = "payment")
+    private String payment;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity userOrder;
+
+    @OneToMany(mappedBy = "order")
+    List<OrderDetailEntity> orders = new ArrayList<>();
+
 }

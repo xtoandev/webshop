@@ -2,16 +2,21 @@ package com.phamxuantoan.webshop.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "product")
 public class ProductEntity extends BaseEntity{
-    @Column(name = "catalog_id")
-    private Integer catalogID;
+
+    @ManyToOne
+    @JoinColumn(name = "catalog_id")
+    private CatalogEntity catalog;
+
     @Column(name = "product_name")
     private String productName;
     @Column(name = "content")
@@ -32,4 +37,7 @@ public class ProductEntity extends BaseEntity{
     private Integer rateTotal;
     @Column(name = "rateCount")
     private Integer rateCount;
+
+    @OneToMany(mappedBy = "productComment")
+    private List<CommentEntity> comments = new ArrayList<>();
 }

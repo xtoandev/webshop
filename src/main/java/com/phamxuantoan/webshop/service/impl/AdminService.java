@@ -2,6 +2,7 @@ package com.phamxuantoan.webshop.service.impl;
 
 import com.phamxuantoan.webshop.dto.AdminDTO;
 import com.phamxuantoan.webshop.entity.AdminEntity;
+import com.phamxuantoan.webshop.exception.NotFoundException;
 import com.phamxuantoan.webshop.mapper.AdminMapper;
 import com.phamxuantoan.webshop.repository.AdminRepository;
 import com.phamxuantoan.webshop.service.IAdminService;
@@ -41,8 +42,22 @@ public class AdminService implements IAdminService {
 
     @Override
     public AdminDTO getAdminById(Integer id) {
-        AdminEntity entity = adminRepository.getById(id);
-        AdminDTO data = mapper.map(entity, AdminDTO.class);
-        return data;
+        List<AdminEntity> entity = adminRepository.findAll();
+        for(AdminEntity i:entity){
+            if(i.getId() == id){
+                AdminDTO data = mapper.map(i, AdminDTO.class);
+                return data;
+            }
+
+        }throw  new NotFoundException("ADMIN_NOT_FOUND_IN");
+
+
+        /*
+        if(entity != null){
+            AdminDTO data = mapper.map(entity, AdminDTO.class);
+            return data;
+        }
+        throw  new NotFoundException("ADMIN_NOT_FOUND_IN");*/
+
     }
 }

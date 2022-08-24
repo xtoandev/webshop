@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentDTO extends BaseDTO<CommentDTO>{
+public class OrderDetailDTO extends BaseDTO<OrderDetailDTO> {
+    private Integer orderID;
     private Integer productID;
-    private String content;
-    private String imageLink;
-    private Integer rate;
-    private Integer userID;
+    private Integer quantity;
+    private double amount;
+    private Integer status;
+
 
 }
