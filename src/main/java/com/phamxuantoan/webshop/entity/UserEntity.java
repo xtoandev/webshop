@@ -1,10 +1,8 @@
 package com.phamxuantoan.webshop.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -32,6 +30,14 @@ public class UserEntity extends  BaseEntity{
     @OneToMany(mappedBy = "userComment")
     private List<CommentEntity> commnents = new ArrayList<>();
 
-    @OneToMany(mappedBy = "userOrder")
-    private List<OrderEntity> transactions = new ArrayList<>();
+
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnore
+    private List<BillsEntity> bills = new ArrayList<>();
+
 }

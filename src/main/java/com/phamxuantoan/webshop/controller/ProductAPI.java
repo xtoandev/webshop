@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-public class ProductController {
+public class ProductAPI {
     @Autowired
     private IProductService productService;
 

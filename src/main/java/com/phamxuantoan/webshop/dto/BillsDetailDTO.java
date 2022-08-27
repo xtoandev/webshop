@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetailDTO extends BaseDTO<OrderDetailDTO> {
+public class BillsDetailDTO extends BaseDTO<BillsDetailDTO> {
     private Integer orderID;
     private Integer productID;
     private Integer quantity;

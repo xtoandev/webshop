@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentDTO extends BaseDTO<CommentDTO>{
-    private Integer productID;
+    private ProductDTO productComment;
     private String content;
     private String imageLink;
     private Integer rate;
-    private Integer userID;
+    private UserDTO userComment;
 
 }

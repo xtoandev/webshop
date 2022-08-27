@@ -1,21 +1,21 @@
 package com.phamxuantoan.webshop.dto;
 
+import com.phamxuantoan.webshop.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDTO extends BaseDTO<OrderDTO> {
+public class BillsDTO extends BaseDTO<BillsDTO> {
     private Integer status;
-    private Integer userID;
-    private String userName;
-    private String emailOrder;
-    private String phoneOrder;
-    private String addressOrder;
     private String message;
     private double amount;
     private String payment;
+    List<BillsDetailDTO> details;
 
+    private UserDTO user;
 }

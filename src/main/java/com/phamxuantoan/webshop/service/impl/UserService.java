@@ -1,6 +1,5 @@
 package com.phamxuantoan.webshop.service.impl;
 
-import com.phamxuantoan.webshop.constant.CommonConstant;
 import com.phamxuantoan.webshop.dto.UserDTO;
 import com.phamxuantoan.webshop.entity.UserEntity;
 import com.phamxuantoan.webshop.repository.UserRepository;

@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class BaseDTO<T> {
-    private Integer id;
+    public Integer id;
     private Integer created;
-
+    private List<T> listResult = new ArrayList<>();
 }
