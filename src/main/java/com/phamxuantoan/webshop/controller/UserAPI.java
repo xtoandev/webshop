@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 @CrossOrigin
 @RestController
-public class UserController {
+public class UserAPI {
     @Autowired
     private IUserService userService;
 

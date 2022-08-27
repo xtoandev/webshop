@@ -8,13 +8,18 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "order")
-public class OrderDetailEntity extends BaseEntity{
+@Table(name = "billsdetail")
+public class BillsDetailEntity extends BaseEntity{
 
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    ProductEntity product;
 
-    @Column(name = "product_id")
-    private Integer productID;
+    @ManyToOne
+    @JoinColumn(name = "bills_id")
+    BillsEntity bill;
+
 
     @Column(name = "quantity")
     private Integer quantity;
@@ -24,9 +29,4 @@ public class OrderDetailEntity extends BaseEntity{
 
     @Column(name = "status")
     private Integer status;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private OrderEntity order;
-
 }

@@ -1,53 +1,14 @@
-#create database pxtshop CHARACTER SET utf8;
 use pxtshop;
-
-CREATE TABLE `slider` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `slider_name` varchar(100) NOT NULL,
-  `image_link` varchar(100) NOT NULL,
-  `sort_order` int(11) NOT NULL,
-  `created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `slider` (`id`, `slider_name`, `image_link`, `sort_order`, `created`) VALUES
-(1, '1', 'slide1.jpg', 1, '1641509311'),
-(2, '2', 'slide2.jpg', 2, '1641509311'),
-(3, '3', 'slide3.jpg', 3, '1641509311');
--- --------------------------------------------------------
-
-CREATE TABLE `permission` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `permission_name` varchar(100) NOT NULL,
-  `created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 INSERT INTO `permission` (`id`, `permission_name`, `created`) VALUES
-(1, 'admin', 1641509311);
--- --------------------------------------------------------
+(1, 'ADMIN', 1641509311),
+(2, 'EMPLOYEE', 1641509311),
+(3, 'CUSTOMER', 1641509311);
 
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `admin_name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `avatar` varchar(250)  NULL DEFAULT 'no-ava.png',
-  `permission_id` int(11) NOT NULL ,
-  `created` int(11) NOT NULL,
-   FOREIGN KEY (permission_id) REFERENCES permission(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `account` (`id`, `account_name`, `email`, `password`, `avatar`, `permission_id`, `created`) VALUES
+(1, 'admin', 'admin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 1, 1641509311),
+(2, 'PXT', 'pxt@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 2, 1641509311),
+(3, 'NTQV', 'p1235@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 2, 1641509311);
 
-INSERT INTO `admin` (`id`, `admin_name`, `email`, `password`, `avatar`, `permission_id`, `created`) VALUES
-(1, 'admin', 'admin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 1, 1641509311);
--- --------------------------------------------------------
-
-CREATE TABLE `catalog` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `catalog_name` varchar(100) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `parent_id` int(11) NOT NULL,
-  `sort_order` tinyint(4) NOT NULL,
-  `created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 INSERT INTO `catalog` (`id`, `catalog_name`, `description`, `parent_id`, `sort_order`, `created`) VALUES
@@ -69,25 +30,6 @@ INSERT INTO `catalog` (`id`, `catalog_name`, `description`, `parent_id`, `sort_o
 (16, 'Áo khoác, Áo choàng , Vest', '', 8, 2, 1641509311),
 (17, 'Đầm, váy', '', 8, 3, 1641509311),
 (18, 'Áo công sở', '', 8, 4, 1641509311);
--- --------------------------------------------------------
-
-CREATE TABLE `product` (
-  `id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `catalog_id` int(11) NOT NULL,
-  `product_name` varchar(255) NOT NULL,
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` decimal(15,2) NOT NULL DEFAULT 0.00,
-  `discount` int(11) DEFAULT 0,
-  `image_link` varchar(100) NOT NULL,
-  `image_list` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `view_count` int(11) NOT NULL DEFAULT 0,
-  `buyed_count` int(255) NOT NULL,
-  `rate_total` int(255) NOT NULL DEFAULT 4,
-  `rate_count` int(255) NOT NULL DEFAULT 1,
-  `created` int(11) NOT NULL,
-   FOREIGN KEY (catalog_id) REFERENCES catalog(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 INSERT INTO `product` (`id`, `catalog_id`, `product_name`, `content`, `price`, `discount`, `image_link`, `image_list`, `view_count`, `buyed_count`, `rate_total`, `rate_count`, `created`) VALUES
 (1, 16, 'Áo blazer nữ 2 lớp', '<p><strong>Th&ocirc;ng tin sản phẩm:</strong></p>\r\n\r\n<p>&Aacute;o blazer nữ 2 lớp - &aacute;o vest nữ 2 lớp chất dạ kẻ (h&agrave;ng đẹp) phong c&aacute;ch Ulzzang H&agrave;n Quốc Kanimi Một trong những m&oacute;n đồ kh&ocirc;ng thể thiếu cho c&aacute;c n&agrave;ng trong m&ugrave;a thu đ&ocirc;ng 2020. Đ&oacute; ch&iacute;nh l&agrave; &aacute;o kho&aacute;c blazer, &aacute;o vest kẻ 2 lớp vừa trẻ trung năng động m&agrave; cũng rất style nha.</p>\r\n\r\n<p>&Aacute;o trơn th&igrave; trend b&acirc;y giờ l&agrave; free size phom rộng mặc cho đẹp kh&aacute;ch nha! Mặc kho&aacute;c ngo&agrave;i trong thời tiết m&ugrave;a đ&ocirc;ng qu&aacute; l&agrave; hợp l&yacute; lu&ocirc;n ạ!</p>\r\n\r\n<p><strong>M&ocirc; tả:</strong></p>\r\n\r\n<p>&Aacute;o gồm 2 lớp: b&ecirc;n trong l&agrave; lớp l&oacute;t lụa xịn x&ograve;, ngo&agrave;i l&agrave; chất dạ kẻ d&agrave;y mềm ấm. &Aacute;o cầm nặng tay, rất d&agrave;y ấm kh&aacute;ch nha! &Aacute;o form d&aacute;ng rộng, dễ mặc dễ phối đồ. Chất dạ kh&ocirc;ng bị bai x&ugrave; &Aacute;o nh&agrave; m&igrave;nh l&agrave; đặt trực tiếp Nh&agrave; m&aacute;y chuy&ecirc;n may h&agrave;ng xuất dư n&ecirc;n c&aacute;c n&agrave;ng ko phải lo chất lượng nha, cam kết đẹp chuẩn h&agrave;ng VNXK lu&ocirc;n ạ!&nbsp;</p>\r\n', '250000.00', 50000, 'sp1_1.jpg', '[\"sp1_2.jpg\",\"sp1_3.jpg\",\"sp1_4.jpg\"]', 27, 6, 10, 2, 1493983674),
@@ -118,18 +60,6 @@ INSERT INTO `product` (`id`, `catalog_id`, `product_name`, `content`, `price`, `
 (26, 10, 'Áo Nỉ Hoodie Họa Tiết Ban Sunling', '<p>&Aacute;o Nỉ Hoodie Họa Tiết Ban Sunling si&ecirc;u d&agrave;y,si&ecirc;u ấm</p>\r\n\r\n<p>K&iacute;ch thước : free sz &lt;65kg.</p>\r\n\r\n<p>Mũ &aacute;o l&ocirc; mới may 2 lớp, si&ecirc;u to&nbsp;</p>\r\n\r\n<p>Chất liệu : nỉ d&agrave;y mịn, form to cho c&aacute;c bạn chiều cao dưới m70, 65 kg&nbsp;</p>\r\n\r\n<p>&nbsp;LƯU &Yacute; KHI SỬ DỤNG C&Aacute;C SẢN PHẨM CỦA SHOP</p>\r\n\r\n<p>- Đối vơi sản phẩm đa dạng về chất liệu, kiểu d&aacute;ng, m&agrave;u sắc, c&aacute;ch bảo quản sản phẩm tốt nhất l&agrave; ph&acirc;n loại v&agrave; giặt c&aacute;c sản phẩm c&ugrave;ng m&agrave;u để giữ được độ bền v&agrave; m&agrave;u sắc của vải, tr&aacute;nh bị phai m&agrave;u từ c&aacute;c loại quần &aacute;o kh&aacute;c.</p>\r\n\r\n<p>- Đối với những sản phẩm c&oacute; thể giặt m&aacute;y, chỉ n&ecirc;n để ở chế độ giặt nhẹ, hoặc mức trung b&igrave;nh</p>\r\n\r\n<p>- N&ecirc;n lộn &aacute;o sang mặt tr&aacute;i trước khi phơi sản phẩm ở nơi tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp dễ bị phai bạc m&agrave;u, n&ecirc;n l&agrave;m kh&ocirc; quần &aacute;o bằng c&aacute;ch phơi ở những điểm đ&oacute;n gi&oacute; sẽ giữ được m&agrave;u vải tốt hơn.</p>\r\n', '350000.00', 0, 'sp26_1.jpg', '[\"sp26_2.jpg\",\"sp26_3.jpg\"]', 31, 2, 5, 18, 1493983674),
 (27, 7, 'Áo thun nam Cotton Compact phiên bản Premium', '<p><strong>M&Ocirc; TẢ SẢN PHẨM</strong></p>\r\n\r\n<p>Vẫn l&agrave; Cotton, nhưng đ&acirc;y l&agrave; Cotton Compact - với độ bền v&agrave; mượt hơn gấp 2 lần cotton thường.</p>\r\n\r\n<p>Chỉ cần chạm v&agrave;o l&agrave; bạn sẽ cảm nhận ngay sự kh&aacute;c biệt: Mềm - M&aacute;t r&otilde; rệt.</p>\r\n\r\n<p>Premium Tshirt Coolmate chống nhăn m&agrave;u XANH LAM ch&iacute;nh l&agrave; chiếc &aacute;o thun d&agrave;nh cho bạn, một phi&ecirc;n bản &aacute;o thun ho&agrave;n to&agrave;n mới v&agrave; đầy sự cải tiến được Coolmate team nghi&ecirc;n cứu kỹ lưỡng v&agrave; ng&agrave;y c&agrave;ng cải tiến hơn với chất liệu Cotton Compact chất lượng cao.</p>\r\n\r\n<p><strong>Đặc điểm nổi bật </strong></p>\r\n\r\n<p>- Chất liệu: 95% Cotton Compact 5% Spandex Mềm mại v&agrave; kh&ocirc;ng g&acirc;y kh&oacute; chịu khi mặc Chất liệu co gi&atilde;n 4 chiều đem lại sự thoải m&aacute;i suốt ng&agrave;y d&agrave;i Bền dai, kh&ocirc;ng bai, nh&atilde;o, x&ugrave; l&ocirc;ng Tự h&agrave;o sản xuất tại Việt Nam</p>\r\n\r\n<p>Những chiếc &aacute;o của Coolmate sử dụng chất liệu cotton compact, một dạng cotton chất lượng cao đem đến cho người mặc trải nghiệm tuyệt vời nhất. &quot;Cotton Compact&quot; l&agrave; c&acirc;u trả lời cho c&aacute;c bạn đang t&igrave;m kiếm cho m&igrave;nh một chiếc &aacute;o thun mặc l&ecirc;n nh&igrave;n đẹp trai hơn một ch&uacute;t, bền hơn v&agrave; tho&aacute;ng m&aacute;t hơn.</p>\r\n', '259000.00', 0, 'sp27_1.jpg', '[\"sp27_2.jpg\",\"sp27_3.jpg\",\"sp27_4.jpg\"]', 37, 3, 5, 5, 1493983674);
 -- --------------------------------------------------------
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `user_name` varchar(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `phone` varchar(15) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `avatar` varchar(250)  NULL DEFAULT 'no-ava.png',
-  `created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `phone`, `address`, `avatar`,`created`) VALUES
 (1, 'Phạm Xuân Toán', 'xuantoan@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456001', '','no-ava.png', 1638830911),
 (2, 'Trần Thanh Nam', 'namthanh@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456002', '', 'no-ava.png',1638830911),
@@ -142,50 +72,24 @@ INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `phone`, `address`, 
 (9, 'Đỗ Trung Nhân', 'dotrungnhan@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456009', '', 'no-ava.png',1625525311),
 (10, 'Bùi Tấn Khoa', 'khoatanbui123@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456010', '', 'no-ava.png',1625525311);
 -- --------------------------------------------------------
-
-CREATE TABLE `order` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `status` int(11) NOT NULL DEFAULT 0,
-  `user_id` int(11) NOT NULL,
-  `name_order` varchar(255) NOT NULL,
-  `phone_order` varchar(255) NOT NULL,
-  `address_order` varchar(255) NOT NULL,
-  `message` varchar(255) DEFAULT NULL,
-  `amount` decimal(15,2) NOT NULL DEFAULT 0.00,
-  `payment` varchar(32) NOT NULL,
-  `created` int(11) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES `user`(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `order` (`id`, `status`, `user_id`, `name_order`, `phone_order`, `address_order`, `message`, `amount`, `payment`, `created`) VALUES
-(1, 1, 1, 'Hoàng Ngọc Nguyên', '0123456001', 'Hòa Bình, Huyện Mai Châu, Xã Tân Thành - 24 Nguyễn Trãi', ' Phí Ship: 47,000VNĐ', '806000.00', '', 1609454911),
-(2, 1, 2, 'Trần Thanh Nam', '0123456002', 'Hồ Chí Minh, Huyện Củ Chi, Xã Tân Thạnh Tây - 101 Hà Thanh', ' Phí Ship: 47,000VNĐ', '1509000.00', '', 1609886911),
-(3, 1, 3, 'Trần Văn Tới', '0123456003', 'Bình Dương, Huyện Dầu Tiếng, Xã Minh Tân - 10 Lê Lợi', ' Phí Ship: 47,000VNĐ', '474000.00', '', 1612565311),
-(5, 1, 2, 'Nguyễn Ngọc Phong', '0975697002', 'Đà Nẵng, Quận Hải Châu, Phường Hòa Cường Nam - ', ' Phí Ship: 22,000VNĐ', '519000.00', '', 1614984511),
-(6, 1, 2, 'Nguyễn Cao Duy Linh', '0975697003', 'Ninh Thuận, Huyện Ninh Hải, Xã Tri Hải - 10 Lê Lai', ' Phí Ship: 47,000VNĐ', '197000.00', '', 1617662911),
-(7, 1, 4, 'Hồ Duy Ninh', '0123456004', 'Ninh Thuận, Thành phố Phan Rang – Tháp Chàm, Phường Phước Mỹ - 34 Trần Quốc Toản', ' Phí Ship: 37,000VNĐ', '562000.00', '', 1620254911),
-(8, 1, 4, 'Hồ Duy Ninh', '0123456004', 'Ninh Thuận, Thành phố Phan Rang – Tháp Chàm, Phường Phước Mỹ - 34 Trần Quốc Toản', ' Phí Ship: 37,000VNĐ', '562000.00', '', 1620254911),
-(9, 1, 5, 'Trần Ngọc Sang', '0123456005', 'Lào Cai, Huyện Mường Khương, Xã Tả Thàng - 101 Hà Nguyễn', ' Phí Ship: 47,000VNĐ', '177000.00', '', 1622933311),
-(10, 1, 6, 'Đào Nguyễn Phương Hoa', '0123456006', 'Hà Nội, Huyện Ba Vì, Xã Khánh Thượng - ', ' Phí Ship: 47,000VNĐ', '316000.00', '', 1625525311),
-(11, 1, 7, 'Lê Trần Công', '0123456007', 'Phú Yên, Huyện Đồng Xuân, Xã Xuân Sơn Bắc - 21 Trần Thánh Tông', ' Phí Ship: 47,000VNĐ', '197000.00', '', 1628203711),
-(12, 1, 8, 'Nguyễn Đức Mạnh', '0123456008', 'Quảng Ngãi, Huyện đảo Lý Sơn, Xã An Hải - ', ' Phí Ship: 47,000VNĐ', '572000.00', '', 1628203711),
-(13, 1, 9, 'Đỗ Trung Nhân', '0123456009', 'Sóc Trăng, Huyện Long Phú, Xã Tân Thạnh - ', ' Phí Ship: 47,000VNĐ', '197000.00', '', 1630882111),
-(14, 1, 10, 'Bùi Tấn Khoa', '0123456010', 'Thừa Thiên - Huế, Huyện Phú Lộc, Thị trấn Lăng Cô - ', ' Phí Ship: 47,000VNĐ', '306000.00', '', 1635806911),
-(15, 1, 2, 'Lê Thùy Linh', '0975697006', 'Kon Tum, Huyện Sa Thầy, Xã Ya Tăng - ', ' Phí Ship: 47,000VNĐ', '524000.00', '', 1633128511);
+INSERT INTO `bills` (`id`, `status`, `user_id`, `message`, `amount`, `payment`, `created`) VALUES
+(1, 1, 1,  ' Phí Ship: 47,000VNĐ', '806000.00', '', 1609454911),
+(2, 1, 2,  ' Phí Ship: 47,000VNĐ', '1509000.00', '', 1609886911),
+(3, 1, 3,  ' Phí Ship: 47,000VNĐ', '474000.00', '', 1612565311),
+(5, 1, 2,  ' Phí Ship: 22,000VNĐ', '519000.00', '', 1614984511),
+(6, 1, 2, ' Phí Ship: 47,000VNĐ', '197000.00', '', 1617662911),
+(7, 1, 4,  ' Phí Ship: 37,000VNĐ', '562000.00', '', 1620254911),
+(8, 1, 4,  ' Phí Ship: 37,000VNĐ', '562000.00', '', 1620254911),
+(9, 1, 5,  ' Phí Ship: 47,000VNĐ', '177000.00', '', 1622933311),
+(10, 1, 6,  ' Phí Ship: 47,000VNĐ', '316000.00', '', 1625525311),
+(11, 1, 7,  ' Phí Ship: 47,000VNĐ', '197000.00', '', 1628203711),
+(12, 1, 8,  ' Phí Ship: 47,000VNĐ', '572000.00', '', 1628203711),
+(13, 1, 9, ' Phí Ship: 47,000VNĐ', '197000.00', '', 1630882111),
+(14, 1, 10,  ' Phí Ship: 47,000VNĐ', '306000.00', '', 1635806911),
+(15, 1, 2,  ' Phí Ship: 47,000VNĐ', '524000.00', '', 1633128511);
 
 -- --------------------------------------------------------
-
-CREATE TABLE `order_detail` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `order_id` int(100) NOT NULL,
-  `product_id` int(100) NOT NULL,
-  `qty` int(100) NOT NULL DEFAULT 0,
-  `amount` decimal(15,2) NOT NULL DEFAULT 0.00,
-  `status` int(11) NOT NULL DEFAULT 0,
-  FOREIGN KEY (order_id) REFERENCES `order`(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `amount`, `status`) VALUES
+INSERT INTO `billsdetail` (`id`, `bills_id`, `product_id`, `quantity`, `amount`, `status`) VALUES
 (1, 1, 1, 1, '200000.00', 0),
 (2, 1, 1, 2, '400000.00', 0),
 (3, 1, 6, 1, '159000.00', 0),
@@ -213,23 +117,9 @@ INSERT INTO `order_detail` (`id`, `order_id`, `product_id`, `qty`, `amount`, `st
 (28, 15, 6, 1, '159000.00', 0),
 (29, 15, 6, 2, '318000.00', 0);
 -- --------------------------------------------------------
-
-CREATE TABLE `comment` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `content` text NOT NULL,
-  `image_link` text NOT NULL,
-  `rate` int(11) NOT NULL,
-  `date` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  FOREIGN KEY (product_id) REFERENCES `product`(id),
-  FOREIGN KEY (user_id) REFERENCES `user`(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `comment` (`id`, `product_id`, `content`, `image_link`, `rate`, `date`, `user_id`) VALUES
+INSERT INTO `comment` (`id`, `product_id`, `content`, `image_link`, `rate`, `created`, `user_id`) VALUES
 (1, 1, 'Áo đẹp quá!', 'sp1_2.jpg', 5, 1642006097, 1),
 (2, 3, 'Áo xịn quá!', 'sp2_2.jpg', 5, 1642006097, 2),
 (3, 5, 'Đáng mua!', 'sp1_3.jpg', 5, 1642006097, 3),
 (4, 6, 'Váy quá xịn luôn hihi !!!!', 'sp6_3.jpg', 5, 1642006155, 2);
 -- --------------------------------------------------------
-

@@ -19,7 +19,7 @@
         <mysql.version>8.0.13</mysql.version>
         <mail.version>2.7.2</mail.version>
         <lombok.version>1.18.24</lombok.version>
-        <modelmapper.version>2.3.5</modelmapper.version>
+        <modelmapper.version>2.3.7</modelmapper.version>
     </properties>
     <dependencies>
         <dependency>
@@ -70,6 +70,11 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.13</version>
         </dependency>
     </dependencies>
 
