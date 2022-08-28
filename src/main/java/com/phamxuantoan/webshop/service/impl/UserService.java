@@ -4,19 +4,10 @@ import com.phamxuantoan.webshop.dto.UserDTO;
 import com.phamxuantoan.webshop.entity.UserEntity;
 import com.phamxuantoan.webshop.repository.UserRepository;
 import com.phamxuantoan.webshop.service.IUserService;
-import org.apache.catalina.User;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.print.Book;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 @Service
@@ -53,11 +44,21 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDTO save(UserEntity user) {
+    public UserDTO saveOrUpdate(UserEntity user) {
         UserDTO data = new UserDTO();
+
+
         UserEntity entity = userRepository.save(user);
         data = mapper.map(entity, UserDTO.class);
-
         return data;
+    }
+
+
+    @Override
+    public void delete(Integer[] ids) {
+        for(Integer item:ids) {
+
+            userRepository.deleteById(item);
+        }
     }
 }

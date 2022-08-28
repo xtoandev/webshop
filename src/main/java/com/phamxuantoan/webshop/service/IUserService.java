@@ -10,5 +10,6 @@ import java.util.List;
 public interface IUserService {
     List<UserDTO> findAll();
     UserDTO getUserById(Integer id);
-    UserDTO save(UserEntity user);
+    UserDTO saveOrUpdate(UserEntity user);
+    void delete(Integer[] ids);
 }

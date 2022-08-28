@@ -15,12 +15,12 @@ public class PermissionAPI {
     @Autowired
     private IPermissionService permissionService;
 
-    @GetMapping(value = "/permission")
+    @GetMapping(value = "/api-permission")
     public List<PermissionDTO> listNew() {
         List<PermissionDTO> datas =  permissionService.findAll();
         return datas;
     }
-    @GetMapping("/permission/{id}")
+    @GetMapping("/api-permission/{id}")
     public PermissionDTO getPermissionById(@PathVariable Integer id) {
         return permissionService.getPermissionById(id);
     }

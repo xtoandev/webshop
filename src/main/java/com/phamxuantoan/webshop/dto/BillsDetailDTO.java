@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BillsDetailDTO extends BaseDTO<BillsDetailDTO> {
-    private Integer orderID;
-    private Integer productID;
+
     private Integer quantity;
     private double amount;
     private Integer status;
+
+    private ProductDTO product;
 
 
 }

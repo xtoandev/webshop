@@ -1,5 +1,6 @@
 package com.phamxuantoan.webshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,12 +15,12 @@ import java.util.Set;
 @Table(name = "product")
 public class ProductEntity extends BaseEntity{
 
-    @ManyToOne
-    @JoinColumn(name = "catalog_id")
-    private CatalogEntity catalog;
-
     @Column(name = "product_name")
     private String productName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "catalog_id")
+    private CatalogEntity catalog;
 
     @Lob
     @Column(name = "content")
@@ -42,7 +43,10 @@ public class ProductEntity extends BaseEntity{
     private Integer rateCount;
 
     @OneToMany(mappedBy = "productComment")
+    @JsonIgnore
     private List<CommentEntity> comments = new ArrayList<>();
+
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     List<BillsDetailEntity> bills;
 }

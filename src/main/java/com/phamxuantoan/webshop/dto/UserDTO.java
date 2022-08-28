@@ -1,9 +1,11 @@
 package com.phamxuantoan.webshop.dto;
 
-import com.phamxuantoan.webshop.entity.PermissionEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,4 +16,5 @@ public class UserDTO extends BaseDTO<UserDTO> {
     private String password;
     private String phone;
     private String address;
+
 }

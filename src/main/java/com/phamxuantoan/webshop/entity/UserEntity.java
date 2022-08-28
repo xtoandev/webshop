@@ -27,7 +27,10 @@ public class UserEntity extends  BaseEntity{
     @Column(name = "avatar")
     private String avatar;
 
-    @OneToMany(mappedBy = "userComment")
+    @OneToMany(mappedBy = "userComment",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<CommentEntity> commnents = new ArrayList<>();
 
 
