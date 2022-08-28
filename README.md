@@ -16,7 +16,7 @@ The app defines following CRUD APIs.
 | DELETE  | /api-account | Delete account by array ids | /api-account |
 
 Request Body Create/UPDATE Account API
-```topojson 
+```
 {  
     "created": 1661694265,
     "accountName": "Pham Xuan Toan",
@@ -29,7 +29,7 @@ Request Body Create/UPDATE Account API
 }
 ``` 
 Request Body DELETE API
-```topojson 
+```
 ["4","5"]
 ``` 
 
@@ -81,7 +81,7 @@ Request Body DELETE API
 | DELETE  | /api-user | Delete user by array ids | /api-user |
 
 Request Body Create/UPDATE Account API
-```topojson 
+``` 
 {
     "created": 1638830911,
     "userName": "Xuân Toán",
