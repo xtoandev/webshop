@@ -1,12 +1,11 @@
 package com.phamxuantoan.webshop.controller;
 
 import com.phamxuantoan.webshop.dto.AccountDTO;
+import com.phamxuantoan.webshop.dto.UserDTO;
+import com.phamxuantoan.webshop.entity.AccountEntity;
 import com.phamxuantoan.webshop.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,15 +13,32 @@ import java.util.List;
 @RestController
 public class AccountAPI {
     @Autowired
-    private IAccountService adminService;
+    private IAccountService accountService;
 
-    @GetMapping(value = "/admin")
+    @GetMapping(value = "/api-account")
     public List<AccountDTO> listNew() {
-        List<AccountDTO> datas =  adminService.findAll();
+        List<AccountDTO> datas =  accountService.findAll();
         return datas;
     }
-    @GetMapping("/admin/{id}")
+    @GetMapping("/api-account/{id}")
     public AccountDTO getAdminById(@PathVariable Integer id) {
-        return adminService.getAdminById(id);
+        return accountService.getAccountById(id);
     }
+
+    @PostMapping("/api-account")
+    public AccountDTO save(@RequestBody AccountEntity user) {
+        return accountService.saveOrUpdate(user);
+    }
+
+    @PutMapping("/api-account/{id}")
+    public AccountDTO update(@RequestBody AccountEntity user, @PathVariable Integer id) {
+        user.setId(id);
+        return accountService.saveOrUpdate(user);
+    }
+
+    @DeleteMapping("/api-account")
+    public void delete(@RequestBody Integer[] ids) {
+        accountService.delete(ids);
+    }
+
 }

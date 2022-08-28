@@ -12,11 +12,11 @@ import javax.persistence.*;
 public class BillsDetailEntity extends BaseEntity{
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     ProductEntity product;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bills_id")
     BillsEntity bill;
 

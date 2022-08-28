@@ -11,8 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO extends BaseDTO<ProductDTO> {
-    private Integer catalogID;
+
     private String productName;
+    private CatalogDTO catalog;
     private String content;
     private double price;
     private Integer discount;
@@ -22,5 +23,4 @@ public class ProductDTO extends BaseDTO<ProductDTO> {
     private Integer buyedCount;
     private Integer rateTotal;
     private Integer rateCount;
-    List<BillsDetailEntity> bills;
 }

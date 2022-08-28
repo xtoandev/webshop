@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "comment")
 public class CommentEntity extends BaseEntity{
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private ProductEntity productComment;
 
@@ -23,7 +23,7 @@ public class CommentEntity extends BaseEntity{
     private Integer rate;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity userComment;
 }
