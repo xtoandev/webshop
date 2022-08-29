@@ -45,6 +45,17 @@ public class ProductService implements IProductService {
         return data;
     }
 
+    @Override
+    public List<ProductDTO> getProductByCatalogId(Integer id) {
+        List<ProductDTO> data = new ArrayList<>();
+        List<ProductEntity> entity = productRepository.findProductByCatalogId(id);
+        for(ProductEntity i:entity){
+
+            data.add(mapper.map(i,ProductDTO.class));
+        };
+        return data;
+    }
+
 
     @Override
     public ProductDTO saveOrUpdate(ProductEntity product) {

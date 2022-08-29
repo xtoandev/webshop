@@ -16,14 +16,20 @@ public class ProductAPI {
     @Autowired
     private IProductService productService;
 
-    @GetMapping(value = "/api-product")
+    @GetMapping( "/api-product")
     public List<ProductDTO> listNew() {
         List<ProductDTO> datas = productService.findAll();
         return datas;
     }
-    @GetMapping(value = "/api-product/{id}")
+    @GetMapping( "/api-product/{id}")
     public ProductDTO getProductById(@PathVariable Integer id) {
         return productService.getProductById(id);
+    }
+
+    @GetMapping( "/api-product/catalog/{id}")
+    public List<ProductDTO> getProductByCatalogId(@PathVariable Integer id) {
+        return productService.getProductByCatalogId(id);
+
     }
 
     @PostMapping("/api-product")

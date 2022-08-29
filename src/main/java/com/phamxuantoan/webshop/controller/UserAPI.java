@@ -14,7 +14,7 @@ public class UserAPI {
     @Autowired
     private IUserService userService;
 
-    @GetMapping(value = "/api-user")
+    @GetMapping("/api-user")
     public List<UserDTO> listNew() {
         List<UserDTO> datas =  userService.findAll();
         return datas;

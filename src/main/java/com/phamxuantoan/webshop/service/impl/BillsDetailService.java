@@ -1,7 +1,9 @@
 package com.phamxuantoan.webshop.service.impl;
 
 import com.phamxuantoan.webshop.dto.BillsDetailDTO;
+import com.phamxuantoan.webshop.dto.UserDTO;
 import com.phamxuantoan.webshop.entity.BillsDetailEntity;
+import com.phamxuantoan.webshop.entity.UserEntity;
 import com.phamxuantoan.webshop.exception.NotFoundException;
 import com.phamxuantoan.webshop.repository.BillsDetailRepository;
 import com.phamxuantoan.webshop.service.IBillsDetailService;
@@ -37,7 +39,7 @@ public class BillsDetailService implements IBillsDetailService {
     }
 
     @Override
-    public BillsDetailDTO getDetailByBillId(Integer id) {
+    public BillsDetailDTO getBillDetailById(Integer id) {
         List<BillsDetailEntity> entity = billsDetailRepository.findAll();
         for(BillsDetailEntity i:entity){
             if(i.getId() == id){
@@ -46,5 +48,33 @@ public class BillsDetailService implements IBillsDetailService {
             }
 
         }throw  new NotFoundException("BILLS_NOT_FOUND_IN");
+    }
+
+    public List<BillsDetailDTO> getDetailByBillId(Integer id) {
+        List<BillsDetailDTO> data = new ArrayList<>();
+        List<BillsDetailEntity> entity = billsDetailRepository.findBillByDetailId(id);
+        for(BillsDetailEntity i:entity){
+
+            data.add(mapper.map(i,BillsDetailDTO.class));
+        };
+        return data;
+    }
+
+    @Override
+    public BillsDetailDTO saveOrUpdate(BillsDetailEntity billsdetail) {
+        BillsDetailDTO data = new BillsDetailDTO();
+
+        BillsDetailEntity entity = billsDetailRepository.save(billsdetail);
+        data = mapper.map(entity, BillsDetailDTO.class);
+        return data;
+    }
+
+
+    @Override
+    public void delete(Integer[] ids) {
+        for(Integer item:ids) {
+
+            billsDetailRepository.deleteById(item);
+        }
     }
 }

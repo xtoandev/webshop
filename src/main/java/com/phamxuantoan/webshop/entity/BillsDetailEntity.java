@@ -20,7 +20,6 @@ public class BillsDetailEntity extends BaseEntity{
     @JoinColumn(name = "bills_id")
     BillsEntity bill;
 
-
     @Column(name = "quantity")
     private Integer quantity;
 
@@ -29,4 +28,6 @@ public class BillsDetailEntity extends BaseEntity{
 
     @Column(name = "status")
     private Integer status;
+
+
 }

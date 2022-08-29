@@ -15,7 +15,7 @@ public class PermissionAPI {
     @Autowired
     private IPermissionService permissionService;
 
-    @GetMapping(value = "/api-permission")
+    @GetMapping("/api-permission")
     public List<PermissionDTO> listNew() {
         List<PermissionDTO> datas =  permissionService.findAll();
         return datas;

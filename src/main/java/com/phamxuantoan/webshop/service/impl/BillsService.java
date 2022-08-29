@@ -49,4 +49,32 @@ public class BillsService implements IBillsService {
 
         }throw  new NotFoundException("BILLS_NOT_FOUND_IN");
     }
+
+    @Override
+    public List<BillsDTO> getBillByUserId(Integer id) {
+        List<BillsDTO> data = new ArrayList<>();
+        List<BillsEntity> entity = billsRepository.findBillByUserId(id);
+        for(BillsEntity i:entity){
+
+            data.add(mapper.map(i,BillsDTO.class));
+        };
+        return data;
+    }
+
+
+
+    @Override
+    public BillsDTO saveOrUpdate(BillsEntity catalog) {
+        BillsDTO data = new BillsDTO();
+        BillsEntity entity = billsRepository.save(catalog);
+        data = mapper.map(entity, BillsDTO.class);
+        return data;
+    }
+
+    @Override
+    public void delete(Integer[] ids) {
+        for(Integer item:ids) {
+            billsRepository.deleteById(item);
+        }
+    }
 }
