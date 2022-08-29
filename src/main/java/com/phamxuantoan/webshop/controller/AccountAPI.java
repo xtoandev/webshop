@@ -15,7 +15,7 @@ public class AccountAPI {
     @Autowired
     private IAccountService accountService;
 
-    @GetMapping(value = "/api-account")
+    @GetMapping("/api-account")
     public List<AccountDTO> listNew() {
         List<AccountDTO> datas =  accountService.findAll();
         return datas;

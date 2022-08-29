@@ -15,7 +15,6 @@ public class BillsDTO extends BaseDTO<BillsDTO> {
     private String message;
     private double amount;
     private String payment;
-    List<BillsDetailDTO> details;
 
     private UserDTO user;
 }
