@@ -10,4 +10,6 @@ public interface IAccountService {
     AccountDTO getAccountById(Integer id);
     AccountDTO saveOrUpdate(AccountEntity account);
     void delete(Integer[] ids);
+
+
 }

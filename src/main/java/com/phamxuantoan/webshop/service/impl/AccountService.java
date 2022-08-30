@@ -31,12 +31,10 @@ public class AccountService implements IAccountService {
     public List<AccountDTO> findAll() {
         List<AccountDTO> data = new ArrayList<>();
         List<AccountEntity> entity = accountRepository.findAll();
-
         for(AccountEntity item:entity) {
 
             data.add(mapper.map(item, AccountDTO.class));
         }
-
         return data;
     }
 
@@ -50,15 +48,6 @@ public class AccountService implements IAccountService {
             }
 
         }throw  new NotFoundException("ACCOUNT_NOT_FOUND_IN");
-
-
-        /*
-        if(entity != null){
-            AccountDTO data = mapper.map(entity, AccountDTO.class);
-            return data;
-        }
-        throw  new NotFoundException("ADMIN_NOT_FOUND_IN");*/
-
     }
     @Override
     public AccountDTO saveOrUpdate(AccountEntity account) {

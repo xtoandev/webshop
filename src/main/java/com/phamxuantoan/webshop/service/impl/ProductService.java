@@ -50,7 +50,6 @@ public class ProductService implements IProductService {
         List<ProductDTO> data = new ArrayList<>();
         List<ProductEntity> entity = productRepository.findProductByCatalogId(id);
         for(ProductEntity i:entity){
-
             data.add(mapper.map(i,ProductDTO.class));
         };
         return data;
