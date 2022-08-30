@@ -1,7 +1,6 @@
 package com.phamxuantoan.webshop.controller;
 
 import com.phamxuantoan.webshop.dto.AccountDTO;
-import com.phamxuantoan.webshop.dto.UserDTO;
 import com.phamxuantoan.webshop.entity.AccountEntity;
 import com.phamxuantoan.webshop.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,8 @@ public class AccountAPI {
     }
     @GetMapping("/api-account/{id}")
     public AccountDTO getAdminById(@PathVariable Integer id) {
-        return accountService.getAccountById(id);
+        AccountDTO data = accountService.getAccountById(id);
+        return data;
     }
 
     @PostMapping("/api-account")
