@@ -8,17 +8,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "billsdetail")
-public class BillsDetailEntity extends BaseEntity{
-
+@Table(name = "orderdetail")
+public class OrderDetailEntity extends BaseEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     ProductEntity product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bills_id")
-    BillsEntity bill;
+    @JoinColumn(name = "order_id")
+    OrderEntity order;
 
     @Column(name = "quantity")
     private Integer quantity;

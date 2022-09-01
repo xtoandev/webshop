@@ -1,11 +1,8 @@
 package com.phamxuantoan.webshop.dto;
 
-import com.phamxuantoan.webshop.entity.BillsDetailEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @AllArgsConstructor

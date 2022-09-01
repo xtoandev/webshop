@@ -4,12 +4,6 @@ INSERT INTO `permission` (`id`, `permission_name`, `created`) VALUES
 (2, 'EMPLOYEE', 1641509311),
 (3, 'CUSTOMER', 1641509311);
 
-INSERT INTO `account` (`id`, `account_name`, `email`, `password`, `avatar`, `permission_id`, `created`) VALUES
-(1, 'admin', 'admin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 1, 1641509311),
-(2, 'PXT', 'pxt@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 2, 1641509311),
-(3, 'NTQV', 'p1235@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055','no-ava.png' , 2, 1641509311);
-
-
 
 INSERT INTO `catalog` (`id`, `catalog_name`, `description`, `parent_id`, `sort_order`, `created`) VALUES
 (1, 'Thời trang', '', 0, 1, 1641509311),
@@ -60,19 +54,34 @@ INSERT INTO `product` (`id`, `catalog_id`, `product_name`, `content`, `price`, `
 (26, 10, 'Áo Nỉ Hoodie Họa Tiết Ban Sunling', '<p>&Aacute;o Nỉ Hoodie Họa Tiết Ban Sunling si&ecirc;u d&agrave;y,si&ecirc;u ấm</p>\r\n\r\n<p>K&iacute;ch thước : free sz &lt;65kg.</p>\r\n\r\n<p>Mũ &aacute;o l&ocirc; mới may 2 lớp, si&ecirc;u to&nbsp;</p>\r\n\r\n<p>Chất liệu : nỉ d&agrave;y mịn, form to cho c&aacute;c bạn chiều cao dưới m70, 65 kg&nbsp;</p>\r\n\r\n<p>&nbsp;LƯU &Yacute; KHI SỬ DỤNG C&Aacute;C SẢN PHẨM CỦA SHOP</p>\r\n\r\n<p>- Đối vơi sản phẩm đa dạng về chất liệu, kiểu d&aacute;ng, m&agrave;u sắc, c&aacute;ch bảo quản sản phẩm tốt nhất l&agrave; ph&acirc;n loại v&agrave; giặt c&aacute;c sản phẩm c&ugrave;ng m&agrave;u để giữ được độ bền v&agrave; m&agrave;u sắc của vải, tr&aacute;nh bị phai m&agrave;u từ c&aacute;c loại quần &aacute;o kh&aacute;c.</p>\r\n\r\n<p>- Đối với những sản phẩm c&oacute; thể giặt m&aacute;y, chỉ n&ecirc;n để ở chế độ giặt nhẹ, hoặc mức trung b&igrave;nh</p>\r\n\r\n<p>- N&ecirc;n lộn &aacute;o sang mặt tr&aacute;i trước khi phơi sản phẩm ở nơi tho&aacute;ng m&aacute;t, tr&aacute;nh &aacute;nh nắng trực tiếp dễ bị phai bạc m&agrave;u, n&ecirc;n l&agrave;m kh&ocirc; quần &aacute;o bằng c&aacute;ch phơi ở những điểm đ&oacute;n gi&oacute; sẽ giữ được m&agrave;u vải tốt hơn.</p>\r\n', '350000.00', 0, 'sp26_1.jpg', '[\"sp26_2.jpg\",\"sp26_3.jpg\"]', 31, 2, 5, 18, 1493983674),
 (27, 7, 'Áo thun nam Cotton Compact phiên bản Premium', '<p><strong>M&Ocirc; TẢ SẢN PHẨM</strong></p>\r\n\r\n<p>Vẫn l&agrave; Cotton, nhưng đ&acirc;y l&agrave; Cotton Compact - với độ bền v&agrave; mượt hơn gấp 2 lần cotton thường.</p>\r\n\r\n<p>Chỉ cần chạm v&agrave;o l&agrave; bạn sẽ cảm nhận ngay sự kh&aacute;c biệt: Mềm - M&aacute;t r&otilde; rệt.</p>\r\n\r\n<p>Premium Tshirt Coolmate chống nhăn m&agrave;u XANH LAM ch&iacute;nh l&agrave; chiếc &aacute;o thun d&agrave;nh cho bạn, một phi&ecirc;n bản &aacute;o thun ho&agrave;n to&agrave;n mới v&agrave; đầy sự cải tiến được Coolmate team nghi&ecirc;n cứu kỹ lưỡng v&agrave; ng&agrave;y c&agrave;ng cải tiến hơn với chất liệu Cotton Compact chất lượng cao.</p>\r\n\r\n<p><strong>Đặc điểm nổi bật </strong></p>\r\n\r\n<p>- Chất liệu: 95% Cotton Compact 5% Spandex Mềm mại v&agrave; kh&ocirc;ng g&acirc;y kh&oacute; chịu khi mặc Chất liệu co gi&atilde;n 4 chiều đem lại sự thoải m&aacute;i suốt ng&agrave;y d&agrave;i Bền dai, kh&ocirc;ng bai, nh&atilde;o, x&ugrave; l&ocirc;ng Tự h&agrave;o sản xuất tại Việt Nam</p>\r\n\r\n<p>Những chiếc &aacute;o của Coolmate sử dụng chất liệu cotton compact, một dạng cotton chất lượng cao đem đến cho người mặc trải nghiệm tuyệt vời nhất. &quot;Cotton Compact&quot; l&agrave; c&acirc;u trả lời cho c&aacute;c bạn đang t&igrave;m kiếm cho m&igrave;nh một chiếc &aacute;o thun mặc l&ecirc;n nh&igrave;n đẹp trai hơn một ch&uacute;t, bền hơn v&agrave; tho&aacute;ng m&aacute;t hơn.</p>\r\n', '259000.00', 0, 'sp27_1.jpg', '[\"sp27_2.jpg\",\"sp27_3.jpg\",\"sp27_4.jpg\"]', 37, 3, 5, 5, 1493983674);
 -- --------------------------------------------------------
-INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `phone`, `address`, `avatar`,`created`) VALUES
-(1, 'Phạm Xuân Toán', 'xuantoan@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456001', '','no-ava.png', 1638830911),
-(2, 'Trần Thanh Nam', 'namthanh@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456002', '', 'no-ava.png',1638830911),
-(3, 'Trần Văn Tới', 'tranvantoi@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456003', '', 'no-ava.png',1638830911),
-(4, 'Hồ Duy Ninh', 'ninhho@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456004', '', 'no-ava.png',1641509311),
-(5, 'Trần Ngọc Sang', 'sangtran12@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456005', '', 'no-ava.png',1625525311),
-(6, 'Đào Nguyễn Phương Hoa', 'hoadao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456006', '', 'no-ava.png',1625525311),
-(7, 'Lê Trần Công', 'congtran23@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456007', '', 'no-ava.png',1625525311),
-(8, 'Nguyễn Đức Mạnh', 'manhduc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456008', '', 'no-ava.png',1625525311),
-(9, 'Đỗ Trung Nhân', 'dotrungnhan@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456009', '', 'no-ava.png',1625525311),
-(10, 'Bùi Tấn Khoa', 'khoatanbui123@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456010', '', 'no-ava.png',1625525311);
+INSERT INTO `user` (`id`, `username`,`fullname`, `email`, `password`, `phone`, `address`, `avatar`,`created`) VALUES
+(1, 'xuantoan','Phạm Xuân Toán', 'xuantoan@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456001', '','no-ava.png', 1638830911),
+(2, 'thanhnam','Trần Thanh Nam', 'namthanh@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456002', '', 'no-ava.png',1638830911),
+(3, 'vantoi','Trần Văn Tới', 'tranvantoi@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456003', '', 'no-ava.png',1638830911),
+(4, 'duyninh','Hồ Duy Ninh', 'ninhho@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456004', '', 'no-ava.png',1641509311),
+(5, 'ngocsang','Trần Ngọc Sang', 'sangtran12@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456005', '', 'no-ava.png',1625525311),
+(6, 'phuonghoa','Đào Nguyễn Phương Hoa', 'hoadao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456006', '', 'no-ava.png',1625525311),
+(7, 'trancong','Lê Trần Công', 'congtran23@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456007', '', 'no-ava.png',1625525311),
+(8, 'nguyenducmanh','Nguyễn Đức Mạnh', 'manhduc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456008', '', 'no-ava.png',1625525311),
+(9, 'dotrungnhan','Đỗ Trung Nhân', 'dotrungnhan@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456009', '', 'no-ava.png',1625525311),
+(10, 'buitankhoa','Bùi Tấn Khoa', 'khoatanbui123@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456010', '', 'no-ava.png',1625525311);
 -- --------------------------------------------------------
-INSERT INTO `bills` (`id`, `status`, `user_id`, `message`, `amount`, `payment`, `created`) VALUES
+INSERT INTO `user_permission`(`user_id`, `permission_id`) VALUES
+(1,1),
+(1,2),
+(2,2),
+(2,3),
+(3,3),
+(4,3),
+(5,3),
+(6,3),
+(7,3),
+(8,3),
+(9,3),
+(10,3);
+
+-- --------------------------------------------------------
+INSERT INTO `order` (`id`, `status`, `user_id`, `message`, `amount`, `payment`, `created`) VALUES
 (1, 1, 1,  ' Phí Ship: 47,000VNĐ', '806000.00', '', 1609454911),
 (2, 1, 2,  ' Phí Ship: 47,000VNĐ', '1509000.00', '', 1609886911),
 (3, 1, 3,  ' Phí Ship: 47,000VNĐ', '474000.00', '', 1612565311),
@@ -89,7 +98,7 @@ INSERT INTO `bills` (`id`, `status`, `user_id`, `message`, `amount`, `payment`, 
 (15, 1, 2,  ' Phí Ship: 47,000VNĐ', '524000.00', '', 1633128511);
 
 -- --------------------------------------------------------
-INSERT INTO `billsdetail` (`id`, `bills_id`, `product_id`, `quantity`, `amount`, `status`) VALUES
+INSERT INTO `orderdetail` (`id`, `order_id`, `product_id`, `quantity`, `amount`, `status`) VALUES
 (1, 1, 1, 1, '200000.00', 0),
 (2, 1, 1, 2, '400000.00', 0),
 (3, 1, 6, 1, '159000.00', 0),

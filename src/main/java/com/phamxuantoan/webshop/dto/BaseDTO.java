@@ -12,5 +12,4 @@ import java.util.List;
 public abstract class BaseDTO<T> {
     public Integer id;
     private Integer created;
-    private List<T> listResult = new ArrayList<>();
 }

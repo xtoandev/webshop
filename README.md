@@ -8,34 +8,6 @@ spring-boot project
 
 The app defines following CRUD APIs.
 
-### Account
-
-| Method | Url | Decription | URL  | 
-| ------ | --- | ---------- | --------------------------- |
-| GET   | /api-account | Get all account | /api-account |
-| GET  | /api-account/{accountID} | Get account by ID | /api-account/1 |
-| POST  | /api-account | Create new account  | /api-account |
-| PUT  | /api-account/{accountID} | Update account by id | /api-account/1 |
-| DELETE  | /api-account | Delete account by array ids | /api-account |
-
-Request Body Create/UPDATE Account API
-```
-{  
-    "created": 1661694265,
-    "accountName": "Pham Xuan Toan",
-    "email": "xuantoan12@gmail.com",
-    "password": "81dc9bdb52d04dc20036dbd8313ed055",
-    "avatar": "no-ava.png",
-    "permissions": {
-        "id": 1
-    }
-}
-``` 
-Request Body DELETE API
-```
-["4","5"]
-``` 
-
 ### Catalog
 
 | Method | Url | Decription | URL | 
@@ -62,9 +34,9 @@ Request Body Create/UPDATE Catalog API
 | GET  | /api-product/{productID} | Get product by ID |  |
 | GET  | /api-product/catalog/{catalogID} | Get list product by catalog ID |  |
 | POST  | /api-product | Create new product  | /api-product |
-| PUT  | /api-product/{productID} | Update product by id | /api-product/1 |
-| DELETE  | /api-product | Delete product by array ids | /api-product |
-Request Body Create/UPDATE Comment API
+| PUT  | /api-product/{productID} | Update product by id | /api-product/1 | 
+| DELETE  | /api-product | Delete product by array ids | /api-product | 
+Request Body Create/UPDATE Product API
 ```
 {
     "created": 1493983674,
@@ -110,14 +82,14 @@ Request Body DELETE API
 ```
 ["4","5"]
 ``` 
-### Bills
+### Orders
 
 | Method | Url | Decription | URL | 
 | ------ | --- | ---------- | --------------------------- |
-| GET   | /api-bills | Get all bills |  |
-| GET  | /api-bills/{billsID} | Get bills by ID |  |
-| GET  | /api-bills/user/{userID} | Get bills by user ID |  |
-Request Body Create/UPDATE Bills API
+| GET   | /api-order | Get all order |  |
+| GET  | /api-order/{orderID} | Get order by ID |  |
+| GET  | /api-order/user/{userID} | Get order by user ID |  |
+Request Body Create/UPDATE Orders API
 ```
 {
         "created": 1609454911,
@@ -130,17 +102,17 @@ Request Body Create/UPDATE Bills API
         }
 }
 ```
-### BillsDetail
+### OrderDetail
 
 | Method | Url | Decription | URL | 
 | ------ | --- | ---------- | --------------------------- |
-| GET   | /api-billsdetail | Get all bills detail |  |
-| GET  | /api-billsdetail/{billsdetailID} | Get bills detail by ID |  |
-| GET  | /api-billsdetail/bills/{billsID} | Get bills details by bills ID |  |
+| GET   | /api-orderdetail | Get all order detail |  |
+| GET  | /api-orderdetail/{orderdetailID} | Get order detail by ID |  |
+| GET  | /api-orderdetail/order/{orderID} | Get order details by order ID |  |
 Request Body Create/UPDATE BillsDetail API
 ```
 {
-    "bill": {
+    "order": {
         "id": 15
     },
     "quantity": 3,

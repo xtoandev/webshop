@@ -1,12 +1,13 @@
 package com.phamxuantoan.webshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -20,12 +21,10 @@ public class PermissionEntity extends BaseEntity{
     private String permissionName;
 
 
-    @OneToMany(
-            mappedBy = "permissions",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    @JsonIgnore
-    private List<AccountEntity> admins = new ArrayList<>();
+
+
+    @ManyToMany(mappedBy = "permissions")
+    @EqualsAndHashCode.Exclude
+    private List<UserEntity> users;
 
 }

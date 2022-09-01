@@ -1,8 +1,6 @@
 package com.phamxuantoan.webshop.controller;
 
-import com.phamxuantoan.webshop.dto.AccountDTO;
 import com.phamxuantoan.webshop.dto.ProductDTO;
-import com.phamxuantoan.webshop.entity.AccountEntity;
 import com.phamxuantoan.webshop.entity.ProductEntity;
 import com.phamxuantoan.webshop.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;

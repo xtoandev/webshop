@@ -1,19 +1,16 @@
 package com.phamxuantoan.webshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "bills")
-public class BillsEntity extends BaseEntity{
+@Table(name = "orders")
+public class OrderEntity extends BaseEntity{
     @Column(name = "status")
     private Integer status;
 
@@ -30,9 +27,9 @@ public class BillsEntity extends BaseEntity{
 
     /*
     @OneToMany(mappedBy = "orderDetail")
-    List<BillsDetailEntity> orderDetails = new ArrayList<>();*/
-    @OneToMany(mappedBy = "bill")
-    List<BillsDetailEntity> details;
+    List<OrderDetailEntity> orderDetails = new ArrayList<>();*/
+    @OneToMany(mappedBy = "order")
+    List<OrderDetailEntity> details;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

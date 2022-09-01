@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -48,5 +47,5 @@ public class ProductEntity extends BaseEntity{
 
     @OneToMany(mappedBy = "product")
     @JsonIgnore
-    List<BillsDetailEntity> bills;
+    List<OrderDetailEntity> orders;
 }

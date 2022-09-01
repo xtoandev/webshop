@@ -14,8 +14,10 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 public class UserEntity extends  BaseEntity{
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String userName;
+    @Column(name = "fullname")
+    private String fullName;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
@@ -27,10 +29,11 @@ public class UserEntity extends  BaseEntity{
     @Column(name = "avatar")
     private String avatar;
 
-    @OneToMany(mappedBy = "userComment",
+    @OneToMany(mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @JsonIgnore
     private List<CommentEntity> commnents = new ArrayList<>();
 
 
@@ -41,6 +44,13 @@ public class UserEntity extends  BaseEntity{
             orphanRemoval = true
     )
     @JsonIgnore
-    private List<BillsEntity> bills = new ArrayList<>();
+    private List<OrderEntity> orders = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "user_permission",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id"))
+    private List<PermissionEntity> permissions;
 
 }

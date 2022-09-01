@@ -1,9 +1,8 @@
 package com.phamxuantoan.webshop.service.impl;
 
-import com.phamxuantoan.webshop.dto.AccountDTO;
 import com.phamxuantoan.webshop.dto.PermissionDTO;
-import com.phamxuantoan.webshop.entity.AccountEntity;
 import com.phamxuantoan.webshop.entity.PermissionEntity;
+import com.phamxuantoan.webshop.entity.UserEntity;
 import com.phamxuantoan.webshop.exception.NotFoundException;
 import com.phamxuantoan.webshop.repository.PermissionRepository;
 import com.phamxuantoan.webshop.service.IPermissionService;
@@ -32,7 +31,6 @@ public class PermissionService implements IPermissionService {
         List<PermissionEntity> entity = permissionRepository.findAll();
 
         for(PermissionEntity item:entity) {
-
             data.add(mapper.map(item,PermissionDTO.class));
         }
 
