@@ -12,4 +12,5 @@ public interface IUserService {
     UserDTO getUserById(Integer id);
     UserDTO saveOrUpdate(UserEntity user);
     void delete(Integer[] ids);
+
 }

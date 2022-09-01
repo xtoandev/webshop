@@ -1,8 +1,6 @@
 package com.phamxuantoan.webshop.service.impl;
 
-import com.phamxuantoan.webshop.dto.AccountDTO;
 import com.phamxuantoan.webshop.dto.PermissionDTO;
-import com.phamxuantoan.webshop.entity.AccountEntity;
 import com.phamxuantoan.webshop.entity.PermissionEntity;
 import com.phamxuantoan.webshop.exception.NotFoundException;
 import com.phamxuantoan.webshop.repository.PermissionRepository;

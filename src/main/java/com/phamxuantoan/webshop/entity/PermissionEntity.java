@@ -20,12 +20,5 @@ public class PermissionEntity extends BaseEntity{
     private String permissionName;
 
 
-    @OneToMany(
-            mappedBy = "permissions",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    @JsonIgnore
-    private List<AccountEntity> admins = new ArrayList<>();
 
 }

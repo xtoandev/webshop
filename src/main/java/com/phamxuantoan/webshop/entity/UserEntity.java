@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -14,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 public class UserEntity extends  BaseEntity{
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String userName;
     @Column(name = "email")
     private String email;
@@ -42,5 +43,8 @@ public class UserEntity extends  BaseEntity{
     )
     @JsonIgnore
     private List<BillsEntity> bills = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<PermissionEntity> permissions = new ArrayList<>();
 
 }
