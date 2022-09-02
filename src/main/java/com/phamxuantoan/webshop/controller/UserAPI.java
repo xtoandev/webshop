@@ -7,36 +7,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.List;
 @CrossOrigin
 @RestController
-public class UserAPI {
+public class UserAPI extends BaseAPI{
     @Autowired
     private IUserService userService;
 
-    @GetMapping("/api-user")
+    @GetMapping("/user")
     public List<UserDTO> listNew() {
         List<UserDTO> datas =  userService.findAll();
         return datas;
     }
-    @GetMapping("/api-user/{id}")
-    public UserDTO getAdminById(@PathVariable Integer id) {
+    @GetMapping("/user/{id}")
+    public UserDTO getAdminById(@PathVariable Long  id) {
         return userService.getUserById(id);
     }
 
-    @PostMapping("/api-user")
-    public UserDTO save(@RequestBody UserEntity user) {
+    @PostMapping("/user")
+    public UserDTO save(@RequestBody @Valid UserDTO user) {
         return userService.saveOrUpdate(user);
     }
 
-    @PutMapping("/api-user/{id}")
-    public UserDTO update(@RequestBody UserEntity user, @PathVariable Integer id) {
+    @PutMapping("/user/{id}")
+    public UserDTO update(@RequestBody UserDTO user, @PathVariable Long  id) {
         user.setId(id);
         return userService.saveOrUpdate(user);
     }
 
-    @DeleteMapping("/api-user")
-    public void delete(@RequestBody Integer[] ids) {
+    @DeleteMapping("/user")
+    public void delete(@RequestBody Long[] ids) {
         userService.delete(ids);
     }
 }

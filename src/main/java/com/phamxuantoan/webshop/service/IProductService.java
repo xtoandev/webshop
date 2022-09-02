@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface IProductService {
     List<ProductDTO> findAll();
-    ProductDTO getProductById(Integer id);
-    List<ProductDTO> getProductByCatalogId(Integer id);
+    ProductDTO getProductById(Long id);
+    List<ProductDTO> getProductByCatalogId(Long id);
     ProductDTO saveOrUpdate(ProductEntity product);
-    void delete(Integer[] ids);
+    void delete(Long[] ids);
 
 }

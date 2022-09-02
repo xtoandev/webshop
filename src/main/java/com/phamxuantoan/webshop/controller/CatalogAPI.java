@@ -6,37 +6,38 @@ import com.phamxuantoan.webshop.service.ICatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin
 @RestController
-public class CatalogAPI {
+public class CatalogAPI extends BaseAPI{
     @Autowired
     private ICatalogService catalogService;
 
-    @GetMapping("/api-catalog")
+    @GetMapping("/catalog")
     public List<CatalogDTO> listNew() {
         List<CatalogDTO> datas =  catalogService.findAll();
         return datas;
     }
-    @GetMapping("/api-catalog/{id}")
-    public CatalogDTO getAdminById(@PathVariable Integer id) {
+    @GetMapping("/catalog/{id}")
+    public CatalogDTO getAdminById(@PathVariable Long id) {
         return catalogService.getCatalogById(id);
     }
 
-    @PostMapping("/api-catalog")
-    public CatalogDTO save(@RequestBody CatalogEntity catalog) {
+    @PostMapping("/catalog")
+    public CatalogDTO save(@Valid @RequestBody CatalogEntity catalog) {
         return catalogService.saveOrUpdate(catalog);
     }
 
-    @PutMapping("/api-catalog/{id}")
-    public CatalogDTO update(@RequestBody CatalogEntity catalog, @PathVariable Integer id) {
+    @PutMapping("/catalog/{id}")
+    public CatalogDTO update(@RequestBody CatalogEntity catalog, @PathVariable Long id) {
         catalog.setId(id);
         return catalogService.saveOrUpdate(catalog);
     }
 
-    @DeleteMapping("/api-catalog")
-    public void delete(@RequestBody Integer[] ids) {
+    @DeleteMapping("/catalog")
+    public void delete(@RequestBody Long[] ids) {
         catalogService.delete(ids);
     }
 }

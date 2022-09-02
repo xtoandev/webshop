@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface OrderRepository extends JpaRepository<OrderEntity, Integer> {
+public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
     @Query(value = "select * from bills  where bills.user_id = ?1",nativeQuery = true)
-    List<OrderEntity> findBillByUserId(Integer id);
+    List<OrderEntity> findBillByUserId(Long id);
 }

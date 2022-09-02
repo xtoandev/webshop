@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IPermissionService {
     List<PermissionDTO> findAll();
-    PermissionDTO getPermissionById(Integer id);
+    PermissionDTO getPermissionById(Long id);
 }

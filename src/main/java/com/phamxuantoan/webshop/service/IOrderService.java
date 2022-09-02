@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface IOrderService {
     List<OrderDTO> findAll();
-    OrderDTO getBillById(Integer id);
-    List<OrderDTO> getBillByUserId(Integer id);
+    OrderDTO getBillById(Long id);
+    List<OrderDTO> getBillByUserId(Long id);
     OrderDTO saveOrUpdate(OrderEntity catalog);
-    void delete(Integer[] ids);
+    void delete(Long[] ids);
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ICatalogService {
     List<CatalogDTO> findAll();
-    CatalogDTO getCatalogById(Integer id);
+    CatalogDTO getCatalogById(Long id);
     CatalogDTO saveOrUpdate(CatalogEntity catalog);
-    void delete(Integer[] ids);
+    void delete(Long[] ids);
 }

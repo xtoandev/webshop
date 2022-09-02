@@ -24,7 +24,6 @@ public class PermissionEntity extends BaseEntity{
 
 
     @ManyToMany(mappedBy = "permissions")
-    @EqualsAndHashCode.Exclude
     private List<UserEntity> users;
 
 }

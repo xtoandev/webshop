@@ -38,7 +38,7 @@ public class PermissionService implements IPermissionService {
     }
 
     @Override
-    public PermissionDTO getPermissionById(Integer id) {
+    public PermissionDTO getPermissionById(Long id) {
         List<PermissionEntity> entity = permissionRepository.findAll();
         for(PermissionEntity i:entity){
             if(i.getId() == id){

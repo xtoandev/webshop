@@ -4,6 +4,7 @@ import com.phamxuantoan.webshop.dto.PermissionDTO;
 import com.phamxuantoan.webshop.dto.UserDTO;
 import com.phamxuantoan.webshop.entity.PermissionEntity;
 import com.phamxuantoan.webshop.entity.UserEntity;
+import com.phamxuantoan.webshop.repository.PermissionRepository;
 import com.phamxuantoan.webshop.repository.UserRepository;
 import com.phamxuantoan.webshop.service.IUserService;
 import org.modelmapper.ModelMapper;
@@ -17,6 +18,8 @@ import java.util.List;
 public class UserService implements IUserService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PermissionRepository permissionRepository;
     @Autowired
     private final ModelMapper mapper;
 
@@ -62,26 +65,40 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public UserDTO getUserById(Integer id) {
+    public UserDTO getUserById(Long id) {
         UserEntity entity = userRepository.getById(id);
         UserDTO data = mapper.map(entity, UserDTO.class);
         return data;
     }
 
     @Override
-    public UserDTO saveOrUpdate(UserEntity user) {
+    public UserDTO saveOrUpdate(UserDTO user) {
         UserDTO data = new UserDTO();
-
-
-        UserEntity entity = userRepository.save(user);
-        data = mapper.map(entity, UserDTO.class);
+        UserEntity entity = new UserEntity();
+        entity.setFullName(user.getFullName());
+        entity.setId(user.getId());
+        entity.setUserName(user.getUserName());
+        entity.setAddress(user.getAddress());
+        entity.setEmail(user.getEmail());
+        entity.setPassword(user.getPassword());
+        entity.setPhone(user.getPhone());
+        entity.setCreated(user.getCreated());
+        List<PermissionEntity>  perlist = new ArrayList<>();
+        for(PermissionDTO item:user.getPermissions()){
+            PermissionEntity per = new PermissionEntity();
+            per = permissionRepository.getById(item.getId());
+            perlist.add(per);
+        }
+        entity.setPermissions(perlist);
+        UserEntity newentity = userRepository.save(entity);
+        data = mapper.map(newentity, UserDTO.class);
         return data;
     }
 
 
     @Override
-    public void delete(Integer[] ids) {
-        for(Integer item:ids) {
+    public void delete(Long[] ids) {
+        for(Long item:ids) {
 
             userRepository.deleteById(item);
         }

@@ -37,7 +37,7 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public CatalogDTO getCatalogById(Integer id) {
+    public CatalogDTO getCatalogById(Long id) {
         List<CatalogEntity> entity = catalogRepository.findAll();
         for(CatalogEntity i:entity){
             if(i.getId() == id){
@@ -57,8 +57,8 @@ public class CatalogService implements ICatalogService {
     }
 
     @Override
-    public void delete(Integer[] ids) {
-        for(Integer item:ids) {
+    public void delete(Long[] ids) {
+        for(Long item:ids) {
             catalogRepository.deleteById(item);
         }
     }

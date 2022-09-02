@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, Integer> {
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
     @Query(value = "select * from product  where product.catalog_id = ?1",nativeQuery = true)
-    List<ProductEntity> findProductByCatalogId(Integer id);
+    List<ProductEntity> findProductByCatalogId(Long id);
 }

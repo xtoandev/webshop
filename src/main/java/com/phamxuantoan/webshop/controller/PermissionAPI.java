@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @CrossOrigin
 @RestController
-public class PermissionAPI {
+public class PermissionAPI extends BaseAPI{
     @Autowired
     private IPermissionService permissionService;
 
-    @GetMapping("/api-permission")
+    @GetMapping("/permission")
     public List<PermissionDTO> listNew() {
         List<PermissionDTO> datas =  permissionService.findAll();
         return datas;
     }
-    @GetMapping("/api-permission/{id}")
-    public PermissionDTO getPermissionById(@PathVariable Integer id) {
+    @GetMapping("/permission/{id}")
+    public PermissionDTO getPermissionById(@PathVariable Long id) {
         return permissionService.getPermissionById(id);
     }
 }

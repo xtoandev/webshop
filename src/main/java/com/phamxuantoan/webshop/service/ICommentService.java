@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ICommentService {
     List<CommentDTO> findAll();
-    List<CommentDTO> getCommentByUserId(Integer id);
-    List<CommentDTO> getCommentByProductId(Integer id);
+    List<CommentDTO> getCommentByUserId(Long id);
+    List<CommentDTO> getCommentByProductId(Long id);
     CommentDTO saveOrUpdate(CommentEntity comment);
-    void delete(Integer[] ids);
+    void delete(Long[] ids);
 }

@@ -17,6 +17,7 @@ public class CommentEntity extends BaseEntity{
 
     @Column(name = "content")
     private String content;
+
     @Column(name = "image_link")
     private String imageLink;
     @Column(name = "rate")
