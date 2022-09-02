@@ -37,7 +37,7 @@ public class OrderDetailService implements IOrderDetailService {
     }
 
     @Override
-    public OrderDetailDTO getBillDetailById(Integer id) {
+    public OrderDetailDTO getBillDetailById(Long id) {
         List<OrderDetailEntity> entity = orderDetailRepository.findAll();
         for(OrderDetailEntity i:entity){
             if(i.getId() == id){
@@ -48,7 +48,7 @@ public class OrderDetailService implements IOrderDetailService {
         }throw  new NotFoundException("BILLS_NOT_FOUND_IN");
     }
 
-    public List<OrderDetailDTO> getDetailByBillId(Integer id) {
+    public List<OrderDetailDTO> getDetailByBillId(Long id) {
         List<OrderDetailDTO> data = new ArrayList<>();
         List<OrderDetailEntity> entity = orderDetailRepository.findBillByDetailId(id);
         for(OrderDetailEntity i:entity){
@@ -69,8 +69,8 @@ public class OrderDetailService implements IOrderDetailService {
 
 
     @Override
-    public void delete(Integer[] ids) {
-        for(Integer item:ids) {
+    public void delete(Long[] ids) {
+        for(Long item:ids) {
 
             orderDetailRepository.deleteById(item);
         }

@@ -10,33 +10,34 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class CatalogAPI {
     @Autowired
     private ICatalogService catalogService;
 
-    @GetMapping("/api-catalog")
+    @GetMapping("/catalog")
     public List<CatalogDTO> listNew() {
         List<CatalogDTO> datas =  catalogService.findAll();
         return datas;
     }
-    @GetMapping("/api-catalog/{id}")
-    public CatalogDTO getAdminById(@PathVariable Integer id) {
+    @GetMapping("/catalog/{id}")
+    public CatalogDTO getAdminById(@PathVariable Long id) {
         return catalogService.getCatalogById(id);
     }
 
-    @PostMapping("/api-catalog")
+    @PostMapping("/catalog")
     public CatalogDTO save(@RequestBody CatalogEntity catalog) {
         return catalogService.saveOrUpdate(catalog);
     }
 
-    @PutMapping("/api-catalog/{id}")
-    public CatalogDTO update(@RequestBody CatalogEntity catalog, @PathVariable Integer id) {
+    @PutMapping("/catalog/{id}")
+    public CatalogDTO update(@RequestBody CatalogEntity catalog, @PathVariable Long id) {
         catalog.setId(id);
         return catalogService.saveOrUpdate(catalog);
     }
 
-    @DeleteMapping("/api-catalog")
-    public void delete(@RequestBody Integer[] ids) {
+    @DeleteMapping("/catalog")
+    public void delete(@RequestBody Long[] ids) {
         catalogService.delete(ids);
     }
 }

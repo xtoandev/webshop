@@ -10,6 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class BaseDTO<T> {
-    public Integer id;
+    public Long id;
     private Integer created;
 }

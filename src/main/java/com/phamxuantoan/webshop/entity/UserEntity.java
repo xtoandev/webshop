@@ -46,7 +46,7 @@ public class UserEntity extends  BaseEntity{
     @JsonIgnore
     private List<OrderEntity> orders = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_permission",
             joinColumns = @JoinColumn(name = "user_id"),

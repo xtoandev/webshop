@@ -38,7 +38,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public ProductDTO getProductById(Integer id) {
+    public ProductDTO getProductById(Long id) {
         ProductDTO data = new ProductDTO();
         ProductEntity entity = productRepository.getById(id);
         data = mapper.map(entity,ProductDTO.class);
@@ -46,7 +46,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public List<ProductDTO> getProductByCatalogId(Integer id) {
+    public List<ProductDTO> getProductByCatalogId(Long id) {
         List<ProductDTO> data = new ArrayList<>();
         List<ProductEntity> entity = productRepository.findProductByCatalogId(id);
         for(ProductEntity i:entity){
@@ -69,8 +69,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void delete(Integer[] ids) {
-        for(Integer item:ids) {
+    public void delete(Long[] ids) {
+        for(Long item:ids) {
             productRepository.deleteById(item);
         }
     }

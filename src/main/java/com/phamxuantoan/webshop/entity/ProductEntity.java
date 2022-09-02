@@ -24,22 +24,30 @@ public class ProductEntity extends BaseEntity{
     @Lob
     @Column(name = "content")
     private String content;
+
     @Column(name = "price")
     private double price;
+
     @Column(name = "discount")
-    private Integer discount;
+    private double discount;
+
     @Column(name = "image_link")
     private String imageLink;
+
     @Column(name = "image_list")
     private String imageList;
+
     @Column(name = "view_count")
-    private Integer viewCount;
+    private Long viewCount;
+
     @Column(name = "buyedCount")
     private Integer buyedCount;
+
     @Column(name = "rateTotal")
-    private Integer rateTotal;
+    private Long rateTotal;
+
     @Column(name = "rateCount")
-    private Integer rateCount;
+    private Long rateCount;
 
     @OneToMany(mappedBy = "productComment")
     @JsonIgnore

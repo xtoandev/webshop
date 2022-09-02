@@ -10,39 +10,40 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class ProductAPI {
     @Autowired
     private IProductService productService;
 
-    @GetMapping( "/api-product")
+    @GetMapping( "/product")
     public List<ProductDTO> listNew() {
         List<ProductDTO> datas = productService.findAll();
         return datas;
     }
-    @GetMapping( "/api-product/{id}")
-    public ProductDTO getProductById(@PathVariable Integer id) {
+    @GetMapping( "/product/{id}")
+    public ProductDTO getProductById(@PathVariable Long  id) {
         return productService.getProductById(id);
     }
 
-    @GetMapping( "/api-product/catalog/{id}")
-    public List<ProductDTO> getProductByCatalogId(@PathVariable Integer id) {
+    @GetMapping( "/product/catalog/{id}")
+    public List<ProductDTO> getProductByCatalogId(@PathVariable Long id) {
         return productService.getProductByCatalogId(id);
 
     }
 
-    @PostMapping("/api-product")
+    @PostMapping("/product")
     public ProductDTO save(@RequestBody ProductEntity product) {
         return productService.saveOrUpdate(product);
     }
 
-    @PutMapping("/api-product/{id}")
-    public ProductDTO update(@RequestBody ProductEntity product, @PathVariable Integer id) {
+    @PutMapping("/product/{id}")
+    public ProductDTO update(@RequestBody ProductEntity product, @PathVariable Long  id) {
         product.setId(id);
         return productService.saveOrUpdate(product);
     }
 
-    @DeleteMapping("/api-product")
-    public void delete(@RequestBody Integer[] ids) {
+    @DeleteMapping("/product")
+    public void delete(@RequestBody Long [] ids) {
         productService.delete(ids);
     }
 }

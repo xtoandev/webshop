@@ -10,33 +10,34 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class OrderDetailAPI {
     @Autowired
     private IOrderDetailService billsdetailService;
 
-    @GetMapping("/api-orderdetail")
+    @GetMapping("/orderdetail")
     public List<OrderDetailDTO> listNew() {
         List<OrderDetailDTO> datas = billsdetailService.findAll();
         return datas;
     }
-    @GetMapping("/api-orderdetail/order/{id}")
-    public List<OrderDetailDTO> getBillDetailById(@PathVariable Integer id) {
+    @GetMapping("/orderdetail/order/{id}")
+    public List<OrderDetailDTO> getBillDetailById(@PathVariable Long id) {
         return billsdetailService.getDetailByBillId(id);
     }
 
-    @PostMapping("/api-orderdetail")
+    @PostMapping("/orderdetail")
     public OrderDetailDTO save(@RequestBody OrderDetailEntity user) {
         return billsdetailService.saveOrUpdate(user);
     }
 
-    @PutMapping("/api-orderdetail/{id}")
-    public OrderDetailDTO update(@RequestBody OrderDetailEntity user, @PathVariable Integer id) {
+    @PutMapping("/orderdetail/{id}")
+    public OrderDetailDTO update(@RequestBody OrderDetailEntity user, @PathVariable Long id) {
         user.setId(id);
         return billsdetailService.saveOrUpdate(user);
     }
 
-    @DeleteMapping("/api-orderdetail")
-    public void delete(@RequestBody Integer[] ids) {
+    @DeleteMapping("/orderdetail")
+    public void delete(@RequestBody Long[] ids) {
         billsdetailService.delete(ids);
     }
 }

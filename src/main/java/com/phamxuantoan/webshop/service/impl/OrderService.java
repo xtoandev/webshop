@@ -39,7 +39,7 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public OrderDTO getBillById(Integer id) {
+    public OrderDTO getBillById(Long id) {
         List<OrderEntity> entity = orderRepository.findAll();
         for(OrderEntity i:entity){
             if(i.getId() == id){
@@ -51,7 +51,7 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public List<OrderDTO> getBillByUserId(Integer id) {
+    public List<OrderDTO> getBillByUserId(Long id) {
         List<OrderDTO> data = new ArrayList<>();
         List<OrderEntity> entity = orderRepository.findBillByUserId(id);
         for(OrderEntity i:entity){
@@ -72,8 +72,8 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public void delete(Integer[] ids) {
-        for(Integer item:ids) {
+    public void delete(Long[] ids) {
+        for(Long item:ids) {
             orderRepository.deleteById(item);
         }
     }

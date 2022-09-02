@@ -11,39 +11,40 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class OrderAPI {
     @Autowired
     private IOrderService billsService;
 
-    @GetMapping("/api-order")
+    @GetMapping("/order")
     public List<OrderDTO> listNew() {
         List<OrderDTO> datas = billsService.findAll();
         return datas;
     }
-    @GetMapping("/api-order/{id}")
-    public OrderDTO getBillById(@PathVariable Integer id) {
+    @GetMapping("/order/{id}")
+    public OrderDTO getBillById(@PathVariable Long id) {
         return billsService.getBillById(id);
     }
 
 
-    @GetMapping("/api-order/user/{id}")
-    public List<OrderDTO> getBillByUserId(@PathVariable Integer id) {
+    @GetMapping("/order/user/{id}")
+    public List<OrderDTO> getBillByUserId(@PathVariable Long id) {
         return billsService.getBillByUserId(id);
     }
 
-    @PostMapping("/api-order")
+    @PostMapping("/order")
     public OrderDTO save(@RequestBody OrderEntity user) {
         return billsService.saveOrUpdate(user);
     }
 
-    @PutMapping("/api-order/{id}")
-    public OrderDTO update(@RequestBody OrderEntity user, @PathVariable Integer id) {
+    @PutMapping("/order/{id}")
+    public OrderDTO update(@RequestBody OrderEntity user, @PathVariable Long id) {
         user.setId(id);
         return billsService.saveOrUpdate(user);
     }
 
-    @DeleteMapping("/api-order")
-    public void delete(@RequestBody Integer[] ids) {
+    @DeleteMapping("/order")
+    public void delete(@RequestBody Long[] ids) {
         billsService.delete(ids);
     }
 }

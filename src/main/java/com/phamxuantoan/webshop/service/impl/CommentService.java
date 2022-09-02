@@ -39,7 +39,7 @@ public class CommentService implements ICommentService {
     }
 
     @Override
-    public List<CommentDTO> getCommentByUserId(Integer id) {
+    public List<CommentDTO> getCommentByUserId(Long id) {
         List<CommentDTO> data = new ArrayList<>();
         List<CommentEntity> entity = commentRepository.findCommentByUserID(id);
         for(CommentEntity i:entity){
@@ -51,7 +51,7 @@ public class CommentService implements ICommentService {
     }
 
     @Override
-    public List<CommentDTO> getCommentByProductId(Integer id) {
+    public List<CommentDTO> getCommentByProductId(Long id) {
         List<CommentDTO> data = new ArrayList<>();
         List<CommentEntity> entity = commentRepository.findCommentByProductID(id);
         for(CommentEntity i:entity){
@@ -70,8 +70,8 @@ public class CommentService implements ICommentService {
     }
 
     @Override
-    public void delete(Integer[] ids) {
-        for(Integer item:ids) {
+    public void delete(Long[] ids) {
+        for(Long item:ids) {
             commentRepository.deleteById(item);
         }
     }
